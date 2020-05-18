@@ -24,10 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-<<<<<<< HEAD
 app.use("/public", express.static(public));
-=======
->>>>>>> 368a030385961550f3c32411469a537ee497b9ad
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
