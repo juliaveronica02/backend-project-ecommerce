@@ -87,5 +87,3 @@ userId and image
 | ------ | ------------- | ----------------------- |
 | get    | upload/show   | show all upload payment |
 | post   | upload/create | create upload payment   |
-
-saya salah repo
