@@ -87,3 +87,46 @@ userId and image
 | ------ | ------------- | ----------------------- |
 | get    | upload/show   | show all upload payment |
 | post   | upload/create | create upload payment   |
+
+---
+
+### Rest API
+
+make new folder (mkdir folderName) or create new git hub repository (git clone copyGitHubRepository)
+
+or using express -- no -view folderName
+
+## Database Sequelize
+
+mysql -u root password
+create database databaseName;
+show databases;
+exit
+insert sequelize table after that sequelize db:migrate
+npm install
+npm install nodemon --save
+nodemon start
+npm i body-parser --save
+import body-parser into app.js
+npm i sequelize-cli
+if forget read readme sequelize on github repository
+sequelize init
+npm i dotenv
+
+# Different between javascript and node.js
+
+javascript is a programming language (type), used for any client-side actity for a web application(utility) and v8(running engine).
+
+## node.js
+
+framework developed on Chrome’s V8 JavaScript engine that compiles the JavaScript directly into the native machine code. It is a lightweight framework used for creating server-side web applications and extends JavaScript API to offer usual server-side functionalities.
+
+## node.js benefit
+
+|   Features   |                                                                           Description                                                                           |     |     |     |
+| :----------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- | --- | --- |
+|     Fast     |                          Node.js is built on Google Chrome’s V8 JavaScript Engine which makes its library very fast in code execution                           |     |     |     |
+| Asynchronous |                                     Node.js based server never waits for an API to return data thus making it asynchronous                                      |     |     |     |
+|   Scalable   |                          It is highly scalable because of its event mechanism which helps the server to respond in a non-blocking way                           |     |     |     |
+| Open Source  | Node.js has an extensive open source community which has contributed in producing some excellent modules to add additional capabilities to Node.js applications |     |     |     |
+| No Buffering |                                         Node.js applications simply output the data in chunks and never buffer any data                                         |     |     |     |
