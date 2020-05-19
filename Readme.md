@@ -92,7 +92,7 @@ userId and image
 
 ### Rest API
 
-make new folder (mkdir folderName) or create new git hub repository (git clone copyGitHubRepository)
+make new folder (mkdir folderName) or create new git hub repository (git clone copyGitHubRepository).
 
 or using express -- no -view folderName
 
@@ -144,17 +144,26 @@ framework developed on Chrome’s V8 JavaScript engine that compiles the JavaScr
 |       7. Suitable for developing real-time applications       |      7. Suitable in situations where something faster and more scalable is required      |     |     |     |
 
 Node.js can be used to develop:
-- Real-Time Web Applications
-- Network Applications
-- Distributed Systems
-- General Purpose Applications
+- Real-Time Web Applications.
+- Network Applications.
+- Distributed Systems.
+- General Purpose Applications.
 
 There are two types of API functions in Node.js:
-* Asynchronous, non-blocking functions
-* Synchronous, blocking functions
+* Asynchronous, non-blocking functions.
+* Synchronous, blocking functions.
 
 |                                                                                                                 Asynchronous                                                                                                                 |                                                                                                                          Non-blocking                                                                                                                         |   |   |   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---|---|---|
 | Asynchronous means not synchronous. Using these we can make asynchronous HTTP requests that do not wait for the server to respond. These functions continue to respond to the request for which it has already received the server response. | Non-blocking functions are used in regards with I/O operations. They immediately respond with whatever data is available and keeps on running as per the requests. In case, any answer couldn’t be retrieved then the API returns immediately with an error.  |   |   |   |
 |                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                               |   |   |   |
 |                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                               |   |   |   |
+## package.json
+metadata of the project where we define the properties of a package.
+
+# REPL
+REPL in Node.js stands for Read, Eval, Print, and Loop. 
+* Read: Reads the user’s input, parses it into JavaScript data-structure and then stores it in the memory.
+* Eval: Receives and evaluates the data structure.
+* Print: Prints the final result.
+* Loop: Loops the provided command until CTRL+C is pressed twice.
