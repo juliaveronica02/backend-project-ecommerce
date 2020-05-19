@@ -113,7 +113,7 @@ if forget read readme sequelize on github repository
 sequelize init
 npm i dotenv
 
-# Different between javascript and node.js
+## Different between javascript and node.js
 
 javascript is a programming language (type), used for any client-side actity for a web application(utility) and v8(running engine).
 
@@ -130,3 +130,31 @@ framework developed on Chrome’s V8 JavaScript engine that compiles the JavaScr
 |   Scalable   |                          It is highly scalable because of its event mechanism which helps the server to respond in a non-blocking way                           |     |     |     |
 | Open Source  | Node.js has an extensive open source community which has contributed in producing some excellent modules to add additional capabilities to Node.js applications |     |     |     |
 | No Buffering |                                         Node.js applications simply output the data in chunks and never buffer any data                                         |     |     |     |
+
+## Anglular and node.js
+
+|                            Angular                            |                                         Node.js                                          |     |     |     |
+| :-----------------------------------------------------------: | :--------------------------------------------------------------------------------------: | --- | --- | --- |
+| 1. It is an open source web application development framework |             1. It is a cross-platform run-time environment for applications              |     |     |     |
+|                2. It is written in TypeScript                 |                   2. It is written in C, C++ and JavaScript languages                    |     |     |     |
+| 3. Used for building single-page client-side web applications |        3. Used for building fast and scalable server-side networking applications        |     |     |     |
+|       4. Angular itself is a web application framework        | 4. Node.js has many different frameworks like Sails.js, Partial.js, and Express.js, etc. |     |     |     |
+| 5. Ideal for creating highly active and interactive web apps  |                       5. Ideal for developing small size projects                        |     |     |     |
+|      6. Helpful in splitting an app into MVC components       |                        6. Helpful in generating database queries                         |     |     |     |
+|       7. Suitable for developing real-time applications       |      7. Suitable in situations where something faster and more scalable is required      |     |     |     |
+
+Node.js can be used to develop:
+- Real-Time Web Applications
+- Network Applications
+- Distributed Systems
+- General Purpose Applications
+
+There are two types of API functions in Node.js:
+* Asynchronous, non-blocking functions
+* Synchronous, blocking functions
+
+|                                                                                                                 Asynchronous                                                                                                                 |                                                                                                                          Non-blocking                                                                                                                         |   |   |   |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---|---|---|
+| Asynchronous means not synchronous. Using these we can make asynchronous HTTP requests that do not wait for the server to respond. These functions continue to respond to the request for which it has already received the server response. | Non-blocking functions are used in regards with I/O operations. They immediately respond with whatever data is available and keeps on running as per the requests. In case, any answer couldn’t be retrieved then the API returns immediately with an error.  |   |   |   |
+|                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                               |   |   |   |
+|                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                               |   |   |   |
