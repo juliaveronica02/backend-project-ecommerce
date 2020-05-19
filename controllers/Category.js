@@ -14,4 +14,16 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.json(err));
   },
+  updateDataById: (req, res) => {
+    Category.update(
+      {
+        name: req.body.name,
+      },
+      { where: { id: req.params.categoryId } }
+    )
+      .then((result) => res.json(result))
+      .catch((err) => {
+        throw err;
+      });
+  },
 };
