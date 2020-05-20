@@ -161,9 +161,70 @@ There are two types of API functions in Node.js:
 ## package.json
 metadata of the project where we define the properties of a package.
 
-# REPL
+## REPL
 REPL in Node.js stands for Read, Eval, Print, and Loop. 
 * Read: Reads the user’s input, parses it into JavaScript data-structure and then stores it in the memory.
 * Eval: Receives and evaluates the data structure.
 * Print: Prints the final result.
 * Loop: Loops the provided command until CTRL+C is pressed twice.
+
+## asynchronously using the event loop
+Below is the list of the tasks which must be done asynchronously using the event loop:
+* I/O operations.
+* Heavy computation.
+* Anything requiring blocking.
+
+## Frontend and Backend
+|                     Front-end Development                    |                            Back-end Development                           |   |   |   |
+|:------------------------------------------------------------:|:-------------------------------------------------------------------------:|---|---|---|
+| 1. Uses mark up and web languages like HTML, CSS, JavaScript | 1. Uses programming and scripting languages like Python, Ruby, Perl, etc. |   |   |   |
+| 2. Based on asynchronous requests and AJAX                   | 2. Based on Server Architecture                                           |   |   |   |
+| 3. Better Accessibility                                      | 3. Enhanced Security                                                      |   |   |   |
+| 4. Used for SEO                                              | 4. Used for Backup                                                        |   |   |   |
+
+## Nodejs Timers
+* setTimeout/clearTimeout – Used to schedule code execution after a designated amount of milliseconds.
+* setInterval/clearInterval – Used to execute a block of code multiple times.
+* setImmediate/clearImmediate – Used to execute code at the end of the current event loop cycle.
+* process.nextTick – Used to schedule a callback function that needs to be invoked in the next iteration of the Event Loop.
+
+## Node.js Various Types.
+* Readable: Used for reading large chunks of data from the source.
+* Writeable: Use for writing large chunks of data to the destination.
+* Duplex: Used for both the functions; read and write.
+* Transform: It is a duplex stream that is used for modifying the data.
+
+## Exit codes in Node.js
+* Uncaught fatal exception
+* Unused
+* Fatal Error
+* Internal Exception handler Run-time failure
+* Internal JavaScript Evaluation Failure
+
+## Express ‘app’ and ‘server’ must be kept separate
+* It allows testing the API in-process without having to perform the network calls.
+* Faster testing execution.
+* Getting wider coverage metrics of the code.
+* Allows deploying the same API under flexible and different network conditions.
+* Better separation of concerns and cleaner code.
+
+## Build node + express + mongo API
+npx express-generator
+npm install -g express-generator
+express -h is a command options.
+express --no-view folderName
+npm init
+npm install body-parser
+npm install nodemon
+
+add ( "scripts": {    "dev": "nodemon server.js"  },) to package.json
+after add, package.json should be like:
+```javascript
+{  "name": "notable",  "version": "1.0.0",  "description": "",  "main": "server.js",  "scripts": {    "dev": "nodemon server.js"  },  "author": "",  "license": "ISC",  "dependencies": {    "body-parser": "^1.15.2",    "express": "^4.14.0",    "mongodb": "^2.2.16"  },  "devDependencies": {    "nodemon": "^1.11.0"  }}
+```
+server.js
+```javascript
+const express = require('express');const MongoClient    = require('mongodb').MongoClient;const bodyParser     = require('body-parser');
+const app = express();
+```
+
