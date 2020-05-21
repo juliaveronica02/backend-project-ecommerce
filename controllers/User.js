@@ -12,6 +12,7 @@ module.exports = {
       email: req.body.email,
       phone: req.body.phone,
       password: req.body.password,
+      passwordConfirm: req.body.passwordConfirm,
     });
     //hash password.
     bcrypt.genSalt(saltRounds, function (err, salt) {
@@ -20,7 +21,14 @@ module.exports = {
         newUser.password = hash;
         newUser
           .save()
-          .then((result) => res.json(result))
+          .then((result) => {
+            if (req.body.password !== req.body.passwordConfirm) {
+              res.json("Password undefined");
+            } else {
+              req.body.password == req.body.passwordConfirm;
+              res.json(result);
+            }
+          })
           .catch((err) => {
             throw err;
           });
