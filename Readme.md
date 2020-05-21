@@ -228,4 +228,107 @@ server.js
 const express = require('express');const MongoClient    = require('mongodb').MongoClient;const bodyParser     = require('body-parser');
 const app = express();
 ```
+## MVC 
+Model View Controller (MVC)
+* Model: Model represents the structure of data, the format and the constraints with which it is stored. It maintains the data of the application. Essentially, it is the database part of the application.
+
+* View: View is what is presented to the user. Views utilize the Model and present data in a form in which the user wants. A user can also be allowed to make changes to the data presented to the user. They consist of static and dynamic pages which are rendered or sent to the user when the user requests them.
+
+* Controller:Controller controls the requests of the user and then generates appropriate response which is fed to the viewer. Typically, the user interacts with the View, which in turn generates the appropriate request, this request will be handled by a controller. The controller renders the appropriate view with the model data as a response.
+
+* Model is data part.
+* View is User Interface part.
+* Controller is request-response handler.
+
+npm init is used here to generate a package.json and app.js file.
+
+NPM (node package manager )
+check NPM (npm -v)
+npm install package_name
+npm install express
+npm install nodemon -g (-g mean To install a package globally (accessible by all projects in system))
+node_modules directory present in the folder of Node application. To see all the locally installed modules use npm ls command.
+npm uninstall (To uninstall packages using npm)
+npm uninstall package_name -g (To uninstall global packages)
+
+What does package.json file consist of?
+The metadata information in package.json file can be categorized into below categories:
+1. Identifying metadata properties: It basically consist of the properties to identify the module/project such as the name of the project, current version of the module, license, author of the project, description about the project etc.
+2. Functional metadata properties: As the name suggests, it consists of the functional values/properties of the project/module such as the entry/starting point of the module, dependencies in project, scripts being used, repository links of Node project etc.
+
+Creating a package.json file:
+A package.json file can be created in two ways:
+1. Using npm init : Running this command, system expects user to fill the vital information required as discussed above. It provides users with default values which are editable by the user. Syntax: npm init
+2. Writing directly to file : One can directly write into file with all the required information and can include it in the Node project.
+```javascript
+{
+  "name": "GeeksForGeeks",
+  "version": "1.0.0",
+  "description": "GeeksForGeeks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js",
+  },
+  "engines": {
+    "node": ">=7.6.0",
+    "npm": ">=4.1.2"
+  },
+  "author": "GeeksForGeeks",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-validator": "^3.1.2",
+    "mongoose": "^4.8.7",
+    "nodemon": "^1.14.12",
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gfg/gfg.git" //sample git repo url
+  },
+  "bugs": {
+    "url": "https://github.com/gfg/gfg/issues"
+  },
+  "homepage": "https://github.com/gfg/gfg#readme"
+}
+```
+name: The name of the application/project.
+version: The version of application. The version should follow semantic versioning rules.
+description: The description about the application, purpose of the application, technology used like React, MongoDB, etc.
+main: This is the entry/starting point of the app. It specifies the main file of the application that triggers when the application starts. Application can be started using npm start.
+scripts: The scripts which needs to be included in the application to run properly.
+engines: The versions of the node and npm used. These versions are specified in case the application is deployed on cloud like heroku or google-cloud.
+keywords: It specifies the array of strings that characterizes the application.
+author: It consist of the information about the author like name, email and other author related information.
+license: The license to which the application confirms are mentioned in this key-value pair.
+dependencies: The third party package or modules installed using npm are specified in this segment.
+devDependencies: The dependencies that are used only in the development part of the application are specified in this segment. These dependencies do not get rolled out when the application is in production stage.
+repository: It contain the information about the type and url of the repository where the code of the application lives is mentioned here in this segment.
+bugs: The url and email where the bugs in the application should be reported are mentioned in this segment.
+
+mongoDB: MongoDB is a cross-platform and open-source document-oriented database, a kind of NoSQL database. 
+MongooseJS: Mongoose or MongooseJS is a MongoDB object modeling(ODM) tool designed to work in an asynchronous environment. 
+NPM: Node Package Manager or NPM is the official package manager for nodeJS applications.
+
+|                                                                                MONGODB                                                                               |                                                                       MYSQL                                                                      |   |   |   |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|---|---|---|
+| MongoDB is an open-source database developed by MongoDB, Inc. MongoDB stores data in JSON-like documents that can vary in structure. It is a popular NoSQL database. | MySQL is a popular open-source relational database management system (RDBMS) that is developed, distributed and supported by Oracle Corporation. |   |   |   |
+|                                                                                                                                                                      |                                                                                                                                                  |   |   |   |
+|                                                                                                                                                                      |                                                                                                                                                  |   |   |   |
+
+body-parser − This is a node.js middleware for handling JSON, Raw, Text and URL encoded form data.
+cookie-parser − Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+multer − This is a node.js middleware for handling multipart/form-data.
+npm install body-parser
+npm install cookie-parser
+npm install multer
+
+undefined: If variable exists but is not defined then it is categorized under undefined.
+null: If variable exists but is not explicitly set the it comes under null category.
+boolean: Boolean represents a logical entity and can have two values: true, and false.
+number: The number is the data type to define a number which can be integer, floating-point, double. The only problem here is that we have to allocate a memory equivalent to a double variable every time we define a number.
+string: This is used to define string values of a character.
+symbol: This is a special data type which is new in ECMA Script 6. The data type “symbol” is a primitive data type having the quality that values of this type can be used to make object properties that are anonymous.
 
