@@ -4,8 +4,8 @@ const Upload = require("../controllers/Upload");
 const multer = require("multer");
 
 const storage = multer.diskStorage({
-  destinaton: (req, res, cb) => {
-    cb(null, "/public/images/");
+  destination: (req, res, cb) => {
+    cb(null, "./public/images");
   },
   filename: (req, file, cb) => {
     cb(null, new Date().toISOString() + file.originalname);

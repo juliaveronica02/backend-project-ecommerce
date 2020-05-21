@@ -3,6 +3,7 @@ const Upload = Models.Upload;
 
 module.exports = {
   create: (req, res) => {
+    console.log(req.file);
     Upload.create({
       userId: req.body.userId,
       image: req.file && req.file.path,
