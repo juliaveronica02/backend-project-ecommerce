@@ -1,5 +1,6 @@
 const Models = require("../models");
 const Item = Models.Item;
+const Category = Models.Category;
 
 module.exports = {
   create: (req, res) => {

@@ -39,7 +39,10 @@ app.use("/payment", paymentRouter);
 app.use("/upload", uploadRouter);
 
 function validateUser(req, res, next) {
-  jwt.verify(req.headers["x-access-token"], privateKey, (err, decoded) => {
+  jwt.verify(req.headers["x-access-token"], privateKey, function (
+    err,
+    decoded
+  ) {
     if (err) {
       res.json(err);
     } else {
