@@ -44,7 +44,7 @@ function validateUser(req, res, next) {
     decoded
   ) {
     if (err) {
-      res.json(err);
+      res.status(401).json(err);
     } else {
       req.body.userId = decoded.id;
       next();
