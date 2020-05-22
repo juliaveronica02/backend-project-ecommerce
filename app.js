@@ -31,21 +31,21 @@ app.use("/public/images", express.static("public/images"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-// app.use("/item", validateUser, itemRouter);
-app.use("/item", itemRouter);
+app.use("/item", validateUser, itemRouter);
+// app.use("/item", itemRouter);
 app.use("/category", categoryRouter);
 app.use("/order", orderRouter);
 app.use("/payment", paymentRouter);
 app.use("/upload", uploadRouter);
 
-// function validateUser(req, res, next) {
-//   jwt.verify(req.headers["x-access-token"], privateKey, (err, decoded) => {
-//     if (err) {
-//       res.json(err);
-//     } else {
-//       req.body.userId = decoded.id;
-//       next();
-//     }
-//   });
-// }
+function validateUser(req, res, next) {
+  jwt.verify(req.headers["x-access-token"], privateKey, (err, decoded) => {
+    if (err) {
+      res.json(err);
+    } else {
+      req.body.userId = decoded.id;
+      next();
+    }
+  });
+}
 module.exports = app;
