@@ -8,31 +8,39 @@ const saltRounds = 10;
 module.exports = {
   // user register.
   create: (req, res) => {
-    const newUser = new User({
-      email: req.body.email,
-      phone: req.body.phone,
-      password: req.body.password,
-      passwordConfirm: req.body.passwordConfirm,
-    });
-    //hash password.
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-      bcrypt.hash(newUser.password, salt, function (err, hash) {
-        if (err) throw err;
-        newUser.password = hash;
-        newUser
-          .save()
-          .then((result) => {
-            if (req.body.password !== req.body.passwordConfirm) {
-              res.json("Password undefined");
-            } else {
-              req.body.password == req.body.passwordConfirm;
-              res.json(result);
-            }
-          })
-          .catch((err) => {
-            throw err;
+    User.findOne({ where: { email: req.body.email } }).then((user) => {
+      if (user) {
+        console.log(user);
+
+        return res.status(400).json({ email: "already exists" });
+      } else {
+        const newUser = new User({
+          email: req.body.email,
+          phone: req.body.phone,
+          password: req.body.password,
+          passwordConfirm: req.body.passwordConfirm,
+        });
+        //hash password.
+        bcrypt.genSalt(saltRounds, function (err, salt) {
+          bcrypt.hash(newUser.password, salt, function (err, hash) {
+            if (err) throw err;
+            newUser.password = hash;
+            newUser
+              .save()
+              .then((result) => {
+                if (req.body.password !== req.body.passwordConfirm) {
+                  res.json("Password undefined");
+                } else {
+                  req.body.password == req.body.passwordConfirm;
+                  res.json(result);
+                }
+              })
+              .catch((err) => {
+                throw err;
+              });
           });
-      });
+        });
+      }
     });
   },
   // get all user data.
