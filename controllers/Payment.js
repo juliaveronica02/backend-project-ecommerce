@@ -8,6 +8,7 @@ module.exports = {
       address: req.body.address,
       quantity: req.body.quantity,
       posCode: req.body.posCode,
+      phone: req.body.phone,
     })
       .then((result) => res.json(result))
       .catch((err) => {
