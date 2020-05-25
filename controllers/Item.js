@@ -82,7 +82,7 @@ module.exports = {
         throw err;
       });
   },
-  getByTitle: (req, res) => {
+  getByName: (req, res) => {
     Item.findAll({
       where: { name: req.params.name },
     })
