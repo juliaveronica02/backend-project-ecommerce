@@ -137,7 +137,7 @@ module.exports = {
             (err, token) => {
               res.json({
                 success: true,
-                token: "Bearer " + token,
+                token: token,
                 id: user.id,
               });
             }

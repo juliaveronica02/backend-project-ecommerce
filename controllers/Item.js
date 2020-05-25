@@ -1,6 +1,7 @@
 const Models = require("../models");
 const Item = Models.Item;
 const Category = Models.Category;
+const User = Models.User;
 
 module.exports = {
   create: (req, res) => {
@@ -12,6 +13,7 @@ module.exports = {
       imageUrl: req.file && req.file.path,
       quantity: req.body.quantity,
       categoryId: req.body.categoryId,
+      userId: req.body.userId,
     })
       .then((result) => res.json(result))
       .catch((err) => {
@@ -19,7 +21,18 @@ module.exports = {
       });
   },
   getAllData: (req, res) => {
-    Item.findAll({ include: "category" })
+    Item.findAll({
+      include: [
+        {
+          model: Category,
+          as: "category",
+        },
+        {
+          model: User,
+          as: "user",
+        },
+      ],
+    })
       .then((result) => res.json(result))
       .catch((err) => {
         throw err;
@@ -51,6 +64,7 @@ module.exports = {
         imageUrl: req.body.imageUrl,
         quantity: req.body.quantity,
         categoryId: req.body.categoryId,
+        userId: req.body.userId,
       },
       { where: { id: req.params.itemId } }
     )

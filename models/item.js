@@ -1,4 +1,6 @@
-"use strict";
+var Sequelize = require("sequelize");
+const User = require("../models/user");
+const Category = require("../models/category");
 module.exports = (sequelize, DataTypes) => {
   const Item = sequelize.define(
     "Item",
@@ -9,15 +11,17 @@ module.exports = (sequelize, DataTypes) => {
       quantity: DataTypes.INTEGER,
       imageUrl: DataTypes.STRING,
       categoryId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
     },
     {}
   );
   Item.associate = function (models) {
     // associations can be defined here
     Item.belongsTo(models.Category, {
-      foreignKey: "categoryId",
       as: "category",
+      foreignKey: "categoryId",
     });
+    Item.belongsTo(models.User, { as: "user", foreignKey: "userId" });
   };
   return Item;
 };
