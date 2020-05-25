@@ -73,13 +73,13 @@ module.exports = {
         throw err;
       });
   },
-  searchName: (req, res) => {
-    const name = newRegExp(req.quary["name"], "i");
-    name
-      .find({ name })
-      .select("-password")
-      .select("- username")
-      .then((result) => res.json(result))
-      .catch((err) => res.json(err));
-  },
+  // searchName: (req, res) => {
+  //   const name = newRegExp(req.quary["name"], "i");
+  //   name
+  //     .find({ name })
+  //     .select("-password")
+  //     .select("- username")
+  //     .then((result) => res.json(result))
+  //     .catch((err) => res.json(err));
+  // },
 };

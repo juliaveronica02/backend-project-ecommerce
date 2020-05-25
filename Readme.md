@@ -1,14 +1,13 @@
 New Databases
 DB name: Test
 
-
 ## User Table
 
 sequelize model:generate --name User --attributes email:STRING,phone:INTEGER,password:STRING
 
 ## Item Table
 
-sequelize model:generate --name Item --attributes name:STRING,price:INTEGER,description:STRING,quantity:INTEGER,imageUrl:STRING,categoryId:INTEGER,userId: INTEGER
+sequelize model:generate --name Item --attributes name:STRING,price:INTEGER,description:STRING,quantity:INTEGER,imageUrl:STRING,categoryId:INTEGER,userId:INTEGER
 
 ## Category Table
 
@@ -18,11 +17,11 @@ sequelize model:generate --name Category --attributes name:STRING
 
 sequelize model:generate --name Order --attributes total:STRING,status:STRING,userId:INTEGER,itemId:INTEGER
 
-## Payment
+## Payment Table
 
 sequelize model:generate --name Payment --attributes name:STRING,address:STRING,quantity:INTEGER,posCode:STRING,phone:INTEGER
 
-## Upload Payment
+## Upload Payment Table
 
 sequelize model:generate --name Upload --attributes userId:INTEGER,image:STRING
 
@@ -41,6 +40,17 @@ hash password and token.
 | post   | /register   | user register (server : https://api.juliaveronica.com/users/register)(postman: http://localhost:3000/users/register)     |
 | post   | /login      | user login (server : https://api.juliaveronica.com/users/login)(postman: http://localhost:3000/users/login)              |
 
+```javascript
+{
+    "_id": "5ec8a62371054e1ecf6e9853",
+    "userName": "Julia Veronica",
+    "email": "juliavero2206@gmail.com",
+    "phone": 1234567890,
+    "password": "$2b$10$0vWyrmfcMqOrofHFAIKZG.kqGBGdnczKiz3siiCNHzeiNxfYWSEEq",
+    "__v": 0
+}
+```
+
 ## Item
 
 name, price, description, imageUrl, quantity.
@@ -54,6 +64,37 @@ when show item include categoryId.
 | update | /put/:id    | edit item by id                                                                                                        |
 | post   | /create     | Item                                                                                                                   |
 
+```javascript
+[
+    {
+        "id": 1,
+        "name": "Aparel 6",
+        "price": 123456,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "quantity": 60,
+        "imageUrl": "public/images/2020-05-25T05:39:17.284Z1.jpeg",
+        "categoryId": 1,
+        "userId": 1,
+        "createdAt": "2020-05-25T05:39:17.000Z",
+        "updatedAt": "2020-05-25T05:39:17.000Z",
+        "category": {
+            "id": 1,
+            "name": "Shoes",
+            "createdAt": "2020-05-25T05:41:09.000Z",
+            "updatedAt": "2020-05-25T05:41:09.000Z"
+        },
+        "user": {
+            "id": 1,
+            "email": "julia@gmail.com",
+            "phone": 1234567890,
+            "password": "$2b$10$dzWrONTaEn336LFCvIaAAOH3PCPPNpSA5rHVf5w912HA8Lz7hWkTC",
+            "createdAt": "2020-05-25T05:38:47.000Z",
+            "updatedAt": "2020-05-25T05:38:47.000Z"
+        }
+    }
+]
+```
+
 ## Category
 
 name.
@@ -62,6 +103,17 @@ name.
 | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
 | get    | /show    | show all category (server : https://api.juliaveronica.com/category/show)(postman: http://localhost:3000/category/show)   |
 | post   | /create  | create category (server : https://api.juliaveronica.com/category/create)(postman: http://localhost:3000/category/create) |
+
+```javascript
+[
+    {
+        "id": 1,
+        "name": "Shoes",
+        "createdAt": "2020-05-25T05:41:09.000Z",
+        "updatedAt": "2020-05-25T05:41:09.000Z"
+    }
+]
+```
 
 ## Order
 
@@ -72,6 +124,40 @@ total and quantity.
 | get    | order/show       | show all order        |
 | delete | order/delete/:id | delete category by id |
 | post   | order/create     | category              |
+
+
+```javascript
+[
+    {
+        "id": 4,
+        "total": "123456",
+        "status": "pending",
+        "userId": 1,
+        "itemId": 1,
+        "createdAt": "2020-05-25T05:47:14.000Z",
+        "updatedAt": "2020-05-25T05:47:14.000Z",
+        "item": {
+            "id": 1,
+            "name": "Aparel 6",
+            "price": 123456,
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "quantity": 60,
+            "imageUrl": "public/images/2020-05-25T05:39:17.284Z1.jpeg",
+            "categoryId": 1,
+            "userId": 1,
+            "createdAt": "2020-05-25T05:39:17.000Z",
+            "updatedAt": "2020-05-25T05:39:17.000Z"
+        },
+        "user": {
+            "id": 1,
+            "email": "julia@gmail.com",
+            "phone": 1234567890,
+            "password": "$2b$10$dzWrONTaEn336LFCvIaAAOH3PCPPNpSA5rHVf5w912HA8Lz7hWkTC",
+            "createdAt": "2020-05-25T05:38:47.000Z",
+            "updatedAt": "2020-05-25T05:38:47.000Z"
+        }
+]
+```
 
 ## Payment
 
@@ -91,6 +177,7 @@ userId and image
 | post   | upload/create | create upload payment   |
 
 ---
+
 
 ### Rest API
 
