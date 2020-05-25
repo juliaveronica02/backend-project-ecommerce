@@ -13,7 +13,7 @@ module.exports = {
       imageUrl: req.file && req.file.path,
       quantity: req.body.quantity,
       categoryId: req.body.categoryId,
-      userId: req.body.userId,
+      userId: req.body.userId || req.userId,
     })
       .then((result) => res.json(result))
       .catch((err) => {
@@ -73,13 +73,22 @@ module.exports = {
         throw err;
       });
   },
-  // searchName: (req, res) => {
-  //   const name = newRegExp(req.quary["name"], "i");
-  //   name
-  //     .find({ name })
-  //     .select("-password")
-  //     .select("- username")
-  //     .then((result) => res.json(result))
-  //     .catch((err) => res.json(err));
-  // },
+  getByUserId: (req, res) => {
+    Item.findAll({
+      where: { userId: req.params.userId },
+    })
+      .then((result) => res.json(result))
+      .catch((err) => {
+        throw err;
+      });
+  },
+  getByTitle: (req, res) => {
+    Item.findAll({
+      where: { name: req.params.name },
+    })
+      .then((result) => res.json(result))
+      .catch((err) => {
+        throw err;
+      });
+  },
 };
