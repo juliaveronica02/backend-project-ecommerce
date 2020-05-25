@@ -16,7 +16,7 @@ sequelize model:generate --name Category --attributes name:STRING
 
 ## Order Table
 
-sequelize model:generate --name Order --attributes total:STRING,status:STRING,userId:INTEGER,categoryId:INTEGER
+sequelize model:generate --name Order --attributes total:STRING,status:STRING,userId:INTEGER,itemId:INTEGER
 
 ## Payment
 
