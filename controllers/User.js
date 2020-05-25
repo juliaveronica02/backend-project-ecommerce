@@ -8,11 +8,15 @@ const saltRounds = 10;
 module.exports = {
   // user register.
   create: (req, res) => {
+    // user find by email.
     User.findOne({ where: { email: req.body.email } }).then((user) => {
+      // if user.
       if (user) {
         console.log(user);
+        // already have email will return error (status 400).
         return res.status(400).json({ email: "already exists" });
       } else {
+        // if user not have account must field register.
         const newUser = new User({
           email: req.body.email,
           phone: req.body.phone,
@@ -27,6 +31,7 @@ module.exports = {
             newUser
               .save()
               .then((result) => {
+                // password confirm.
                 if (req.body.password !== req.body.passwordConfirm) {
                   res.json("Password undefined");
                 } else {
@@ -48,7 +53,7 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.json(err));
   },
-  //get user by id.
+  // get user by id.
   getDataById: (req, res) => {
     User.findOne({ where: { id: req.params.userId } })
       .then((result) => res.json(result))
@@ -56,7 +61,7 @@ module.exports = {
         throw err;
       });
   },
-  //delete user data by id.
+  // delete user data by id.
   deleteDataById: (req, res) => {
     User.destroy({ where: { id: req.params.userId } })
       .then((result) => res.json(result))
@@ -64,6 +69,7 @@ module.exports = {
         throw err;
       });
   },
+  // update user by id.
   updateDataById: (req, res) => {
     User.update(
       {
@@ -110,6 +116,7 @@ module.exports = {
         throw err;
       });
   },
+  // user login.
   login: (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
