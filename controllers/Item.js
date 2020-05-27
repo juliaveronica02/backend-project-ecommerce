@@ -5,7 +5,6 @@ const User = Models.User;
 
 module.exports = {
   create: (req, res) => {
-    // console.log(req.file);
     Item.create({
       name: req.body.name,
       price: req.body.price,
