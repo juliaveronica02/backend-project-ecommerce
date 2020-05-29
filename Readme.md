@@ -66,33 +66,34 @@ when show item include categoryId.
 
 ```javascript
 [
-    {
-        "id": 1,
-        "name": "Aparel 6",
-        "price": 123456,
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "quantity": 60,
-        "imageUrl": "public/images/2020-05-25T05:39:17.284Z1.jpeg",
-        "categoryId": 1,
-        "userId": 1,
-        "createdAt": "2020-05-25T05:39:17.000Z",
-        "updatedAt": "2020-05-25T05:39:17.000Z",
-        "category": {
-            "id": 1,
-            "name": "Shoes",
-            "createdAt": "2020-05-25T05:41:09.000Z",
-            "updatedAt": "2020-05-25T05:41:09.000Z"
-        },
-        "user": {
-            "id": 1,
-            "email": "julia@gmail.com",
-            "phone": 1234567890,
-            "password": "$2b$10$dzWrONTaEn336LFCvIaAAOH3PCPPNpSA5rHVf5w912HA8Lz7hWkTC",
-            "createdAt": "2020-05-25T05:38:47.000Z",
-            "updatedAt": "2020-05-25T05:38:47.000Z"
-        }
-    }
-]
+  {
+    id: 1,
+    name: "Aparel 6",
+    price: 123456,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    quantity: 60,
+    imageUrl: "public/images/2020-05-25T05:39:17.284Z1.jpeg",
+    categoryId: 1,
+    userId: 1,
+    createdAt: "2020-05-25T05:39:17.000Z",
+    updatedAt: "2020-05-25T05:39:17.000Z",
+    category: {
+      id: 1,
+      name: "Shoes",
+      createdAt: "2020-05-25T05:41:09.000Z",
+      updatedAt: "2020-05-25T05:41:09.000Z",
+    },
+    user: {
+      id: 1,
+      email: "julia@gmail.com",
+      phone: 1234567890,
+      password: "$2b$10$dzWrONTaEn336LFCvIaAAOH3PCPPNpSA5rHVf5w912HA8Lz7hWkTC",
+      createdAt: "2020-05-25T05:38:47.000Z",
+      updatedAt: "2020-05-25T05:38:47.000Z",
+    },
+  },
+];
 ```
 
 ## Category
@@ -106,13 +107,13 @@ name.
 
 ```javascript
 [
-    {
-        "id": 1,
-        "name": "Shoes",
-        "createdAt": "2020-05-25T05:41:09.000Z",
-        "updatedAt": "2020-05-25T05:41:09.000Z"
-    }
-]
+  {
+    id: 1,
+    name: "Shoes",
+    createdAt: "2020-05-25T05:41:09.000Z",
+    updatedAt: "2020-05-25T05:41:09.000Z",
+  },
+];
 ```
 
 ## Order
@@ -124,7 +125,6 @@ total and quantity.
 | get    | order/show       | show all order        |
 | delete | order/delete/:id | delete category by id |
 | post   | order/create     | category              |
-
 
 ```javascript
 [
@@ -177,7 +177,6 @@ userId and image
 | post   | upload/create | create upload payment   |
 
 ---
-
 
 ### Rest API
 
@@ -445,4 +444,3 @@ boolean: Boolean represents a logical entity and can have two values: true, and 
 number: The number is the data type to define a number which can be integer, floating-point, double. The only problem here is that we have to allocate a memory equivalent to a double variable every time we define a number.
 string: This is used to define string values of a character.
 symbol: This is a special data type which is new in ECMA Script 6. The data type “symbol” is a primitive data type having the quality that values of this type can be used to make object properties that are anonymous.
-
