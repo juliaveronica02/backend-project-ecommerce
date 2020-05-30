@@ -1,6 +1,7 @@
 New Databases
 DB name: Test
 
+
 ## User Table
 
 sequelize model:generate --name User --attributes email:STRING,phone:INTEGER,password:STRING
@@ -12,6 +13,12 @@ sequelize model:generate --name Item --attributes name:STRING,price:INTEGER,desc
 ## Category Table
 
 sequelize model:generate --name Category --attributes name:STRING
+
+## Detail Table
+sequelize model:generate --name Detail --attributes detail:STRING,itemId:INTEGER
+EndPoint
+detail/show
+detail/create
 
 ## Order Table
 

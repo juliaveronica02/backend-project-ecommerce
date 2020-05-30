@@ -14,6 +14,7 @@ var categoryRouter = require("./routes/category");
 var orderRouter = require("./routes/order");
 var paymentRouter = require("./routes/payment");
 var uploadRouter = require("./routes/upload");
+var detailRouter = require("./routes/detail");
 
 var app = express();
 
@@ -31,7 +32,8 @@ app.use("/public/images", express.static("public/images"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/item", validateUser, itemRouter);
+app.use("/item", itemRouter);
+app.use("/detail", validateUser, detailRouter);
 // app.use("/item", itemRouter);
 app.use("/category", categoryRouter);
 app.use("/order", orderRouter);

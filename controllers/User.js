@@ -3,7 +3,7 @@ const User = Models.User;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const privateKey = "null";
-const saltRounds = 10;
+const saltRounds = 12;
 
 module.exports = {
   // user register.
