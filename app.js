@@ -15,6 +15,7 @@ var orderRouter = require("./routes/order");
 var paymentRouter = require("./routes/payment");
 var uploadRouter = require("./routes/upload");
 var detailRouter = require("./routes/detail");
+var roleRouter = require("./routes/role");
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use("/category", categoryRouter);
 app.use("/order", orderRouter);
 app.use("/payment", paymentRouter);
 app.use("/upload", uploadRouter);
+app.use("/role", roleRouter);
 
 function validateUser(req, res, next) {
   jwt.verify(req.headers["x-access-token"], privateKey, function (
