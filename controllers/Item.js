@@ -32,6 +32,7 @@ module.exports = {
         },
       ],
     })
+      .select("-password")
       .then((result) => res.json(result))
       .catch((err) => {
         throw err;
