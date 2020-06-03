@@ -21,15 +21,15 @@ module.exports = {
   },
   getAllData: (req, res) => {
     Item.findAll({
-      attributes: {
-        exclude: ["password"],
-      },
       include: [
         {
           model: Category,
           as: "category",
         },
         {
+          attributes: {
+            exclude: ["password"],
+          },
           model: User,
           as: "user",
         },
