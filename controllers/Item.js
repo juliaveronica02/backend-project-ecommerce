@@ -21,14 +21,15 @@ module.exports = {
   },
   getAllData: (req, res) => {
     Item.findAll({
-      instanceMethods: {
-        toJSON: function () {
-          var values = Object.assign({}, this.get());
+      // password exclude.
+      // instanceMethods: {
+      //   toJSON: function () {
+      //     var values = Object.assign({}, this.get());
 
-          delete values.password;
-          return values;
-        },
-      },
+      //     delete values.password;
+      //     return values;
+      //   },
+      // },
       include: [
         {
           model: Category,
@@ -37,9 +38,9 @@ module.exports = {
         {
           model: User,
           as: "user",
-          // attributes: {
-          //   exclude: ["password"], // Removing password from User response data
-          // },
+          attributes: {
+            exclude: ["password"], // Removing password from User response data
+          },
         },
       ],
     })
