@@ -29,8 +29,10 @@ module.exports = {
         {
           model: User,
           as: "user",
-          attributes: {
-            exclude: ["password"], // Removing password from User response data
+          defaultScope: {
+            attributes: {
+              exclude: ["password"], // Removing password from User response data
+            },
           },
         },
       ],
