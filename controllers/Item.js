@@ -21,6 +21,9 @@ module.exports = {
   },
   getAllData: (req, res) => {
     Item.findAll({
+      attributes: {
+        exclude: ["password"],
+      },
       include: [
         {
           model: Category,
@@ -32,7 +35,7 @@ module.exports = {
         },
       ],
     })
-      .select("-password")
+      // .select("-password")
       .then((result) => res.json(result))
       .catch((err) => {
         throw err;
