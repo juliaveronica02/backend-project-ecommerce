@@ -27,11 +27,11 @@ module.exports = {
           as: "category",
         },
         {
-          attributes: {
-            exclude: ["password"],
-          },
           model: User,
           as: "user",
+          attributes: {
+            exclude: ["password"], // Removing password from User response data
+          },
         },
       ],
     })
