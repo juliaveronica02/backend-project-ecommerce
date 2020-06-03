@@ -32,6 +32,7 @@ module.exports = {
           attributes: {
             exclude: ["password"], // Removing password from User response data
           },
+          required: false,
         },
       ],
     })
