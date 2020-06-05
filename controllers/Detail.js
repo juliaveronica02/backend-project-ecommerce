@@ -32,4 +32,12 @@ module.exports = {
         throw err;
       });
   },
+  // get detail by id.
+  getDataById: (req, res) => {
+    Detail.findOne({ where: { id: req.params.detailId } })
+      .then((result) => res.json(result))
+      .catch((err) => {
+        throw err;
+      });
+  },
 };
