@@ -6,5 +6,5 @@ const Detail = require("../controllers/Detail");
 
 router.post("/create", Detail.create);
 router.get("/show", Detail.getAllData);
-router.get("/show/:id", Detail.getDataById);
+router.get("/show/:detailId", Detail.getDataById);
 module.exports = router;
