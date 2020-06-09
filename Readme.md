@@ -1,6 +1,8 @@
 New Databases
 DB name: Test
 
+Update
+
 ## User Table
 
 sequelize model:generate --name User --attributes email:STRING,phone:INTEGER,password:STRING
