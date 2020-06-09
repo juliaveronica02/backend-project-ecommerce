@@ -4,45 +4,55 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const privateKey = "null";
 const saltRounds = 12;
+const validateRegister = require("../Validation/Register");
+const validateLogin = require("../Validation/Login");
 
 module.exports = {
   // user register.
-  create: (req, res) => {
-    // user find by email.
+  register: (req, res, next) => {
+    //  check validation Register.
+    const { errors, isValid } = validateRegister(req.body);
+    // if not valid return status 400 (errors).
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     User.findOne({ where: { email: req.body.email } }).then((user) => {
-      // if user.
       if (user) {
-        console.log(user);
-        // already have email will return error (status 400).
-        return res.status(400).json({ email: "already exists" });
+        return res.status(400).json({ email: "Email already exists!" });
       } else {
-        // if user not have account must field register.
-        const newUser = new User({
-          email: req.body.email,
-          phone: req.body.phone,
-          password: req.body.password,
-          passwordConfirm: req.body.passwordConfirm,
-        });
-        //hash password.
-        bcrypt.genSalt(saltRounds, function (err, salt) {
-          bcrypt.hash(newUser.password, salt, function (err, hash) {
-            if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then((result) => {
-                // password confirm.
-                if (req.body.password !== req.body.passwordConfirm) {
-                  res.json("Password undefined");
-                } else {
-                  req.body.password == req.body.passwordConfirm;
-                  res.json(result);
-                }
-              })
-              .catch((err) => {
-                throw err;
+        User.findOne({ where: { phone: req.body.phone } }).then((user) => {
+          if (user) {
+            return res.status(400).json({ phone: "Phone already exists!" });
+          } else {
+            //  create newUser.
+            const newUser = new User({
+              email: req.body.email,
+              phone: req.body.phone,
+              password: req.body.password,
+              passwordConfirm: req.body.passwordConfirm,
+            });
+            //hash password.
+            bcrypt.genSalt(saltRounds, function (err, salt) {
+              bcrypt.hash(newUser.password, salt, function (err, hash) {
+                if (err) throw err;
+                newUser.password = hash;
+                newUser
+                  .save()
+                  .then((result) => {
+                    //  password confirm.
+                    if (req.body.password !== req.body.passwordConfirm) {
+                      res.json("Password undefined");
+                    } else {
+                      req.body.password == req.body.passwordConfirm;
+                      res.json(result);
+                    }
+                  })
+                  .catch((err) => {
+                    throw err;
+                  });
               });
-          });
+            });
+          }
         });
       }
     });
@@ -84,40 +94,13 @@ module.exports = {
         throw err;
       });
   },
-  authenticated: function (req, res, next) {
-    User.findOne({
-      email: req.body.email,
-    })
-      .then((response, err) => {
-        console.log(response);
-
-        if (err) next(err);
-        else {
-          if (
-            response != null &&
-            bcrypt.compareSync(req.body.password, response.password)
-          ) {
-            jwt.sign(
-              {
-                id: response.id,
-              },
-              privateKey,
-              { expiresIn: "365d" },
-              function (err, token) {
-                res.json(token);
-              }
-            );
-          } else {
-            res.json({ status: err });
-          }
-        }
-      })
-      .catch((err) => {
-        throw err;
-      });
-  },
   // user login.
   login: (req, res, next) => {
+    const { errors, isValid } = validateLogin(req.body);
+    // Check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     const email = req.body.email;
     const password = req.body.password;
     // Find user by email
@@ -139,7 +122,8 @@ module.exports = {
             payload,
             privateKey,
             {
-              expiresIn: 31556926, // 1 year in seconds
+              // expiresIn: 31556926, // 1 year in seconds
+              expiresIn: 60 * 60,
             },
             (err, token) => {
               res.json({
