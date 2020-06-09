@@ -121,7 +121,7 @@ module.exports = {
     const email = req.body.email;
     const password = req.body.password;
     // Find user by email
-    User.findOne({ where: { email: req.body.email } }).then((user) => {
+    User.findOne({ email }).then((user) => {
       // Check if user exists
       if (!user) {
         return res.status(404).json({ emailnotfound: "Email not found" });
