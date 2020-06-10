@@ -457,3 +457,10 @@ boolean: Boolean represents a logical entity and can have two values: true, and 
 number: The number is the data type to define a number which can be integer, floating-point, double. The only problem here is that we have to allocate a memory equivalent to a double variable every time we define a number.
 string: This is used to define string values of a character.
 symbol: This is a special data type which is new in ECMA Script 6. The data type “symbol” is a primitive data type having the quality that values of this type can be used to make object properties that are anonymous.
+
+
+## Server
+update nodejs:<br>
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates <br>
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - <br>
+sudo apt -y install nodejs <br>

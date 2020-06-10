@@ -34,14 +34,14 @@ module.exports = {
         {
           model: Category,
           as: "category",
-        },
-        {
-          model: User,
-          as: "user",
-          attributes: {
-            exclude: ["password"], // Removing password from User response data
-          },
-        },
+        }
+        // {
+        //   model: User,
+        //   as: "user",
+        //   attributes: {
+        //     exclude: ["password"], // Removing password from User response data
+        //   },
+        // },
       ],
     })
       // .select("-password")

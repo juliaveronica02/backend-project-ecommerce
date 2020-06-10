@@ -104,13 +104,17 @@ module.exports = {
     const email = req.body.email;
     const password = req.body.password;
     // Find user by email
-    User.findOne({ email }).then((user) => {
+    User.findOne({ where: {email: email} }).then((user) => {
       // Check if user exists
+      console.log(user);
+      
       if (!user) {
         return res.status(404).json({ emailnotfound: "Email not found" });
       }
       // Check password
       bcrypt.compare(password, user.password).then((isMatch) => {
+        console.log(isMatch);
+        
         if (isMatch) {
           // User matched Create JWT Payload
           const payload = {

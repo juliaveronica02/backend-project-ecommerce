@@ -1,5 +1,5 @@
 {
-  "development1": {
+  "development": {
     "username": "root",
     "password": "Hallo123$",
     "database": "test",
@@ -23,7 +23,7 @@
     "dialect": "mysql",
     "operatorsAliases": false
   },
-  "development": {
+  "development1": {
     "username": "root",
     "password": "Hallo123$",
     "database": "test",
