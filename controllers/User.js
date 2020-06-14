@@ -18,11 +18,11 @@ module.exports = {
     }
     User.findOne({ where: { email: req.body.email } }).then((user) => {
       if (user) {
-        return res.status(401).json({ email: "Email already exists!" });
+        return res.status(400).json({ email: "Email already exists!" });
       } else {
         User.findOne({ where: { phone: req.body.phone } }).then((user) => {
           if (user) {
-            return res.status(402).json({ phone: "Phone already exists!" });
+            return res.status(400).json({ phone: "Phone already exists!" });
           } else {
             //  create newUser.
             const newUser = new User({
