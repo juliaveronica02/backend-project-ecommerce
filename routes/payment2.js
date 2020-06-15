@@ -17,5 +17,5 @@ const upload = multer({
 /* GET users listing. */
 
 router.post("/create", upload.single("image"), Payment2.create);
-router.get("/show", Payment2.getAllData);
+router.get("/show", Payment2.getData);
 module.exports = router;
