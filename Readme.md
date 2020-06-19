@@ -1,7 +1,8 @@
 New Databases
 DB name: Test
 
-Update
+## add column on table
+ALTER TABLE Users ADD COLUMN role VARCHAR(30) AFTER password;
 
 ## User Table
 

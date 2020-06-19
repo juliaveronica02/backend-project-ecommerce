@@ -30,6 +30,7 @@ module.exports = {
               phone: req.body.phone,
               password: req.body.password,
               passwordConfirm: req.body.passwordConfirm,
+              role: req.body.role
             });
             //hash password.
             bcrypt.genSalt(saltRounds, function (err, salt) {
@@ -134,6 +135,7 @@ module.exports = {
                 success: true,
                 token: token,
                 id: user.id,
+                role: user.role
               });
             }
           );
