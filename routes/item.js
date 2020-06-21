@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const Item = require("../controllers/Item");
 const multer = require("multer");
+const { validateAdmin } = require("../Validation/admin");
 
 const storage = multer.diskStorage({
   destination: (req, res, cb) => {
@@ -16,7 +17,7 @@ const upload = multer({
 });
 /* GET users listing. */
 
-router.post("/create", upload.single("imageUrl"), Item.create);
+router.post("/create", upload.single("imageUrl"), validateAdmin,Item.create);
 router.get("/show", Item.getAllData);
 router.get("/show/:itemId", Item.getDataById);
 router.get("/getByUserId/:itemId", Item.getByUserId);
