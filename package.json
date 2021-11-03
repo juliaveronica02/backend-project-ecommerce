@@ -22,6 +22,6 @@
     "nodemon": "^2.0.4",
     "sequelize": "^5.21.7",
     "sequelize-cli": "^5.5.1",
-    "validator": "^13.0.0"
+    "validator": "^13.7.0"
   }
 }
